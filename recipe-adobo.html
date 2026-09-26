@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Adobo | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+<body class="recipe-detail-page">
+
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="early-morning-forest-live-wallpaper-4k-60fps-download-link-1440-ytshorts.savetube.me.mp4" type="video/mp4">
+</video>
+
+<div class="bg-overlay"></div>
+
+<header class="landing-header">
+    <div class="brand">
+        <img src="logo.png" alt="Taste Beyond Borders" class="brand-logo">
+        <span>Taste Beyond<br>Borders</span>
+    </div>
+    <nav class="landing-nav">
+        <a href="home.html">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+</header>
+
+<div class="recipe-container">
+
+    <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+    <div class="recipe-title-row fade-in">
+        <h1>Pork Adobo</h1>
+        <div class="recipe-flag-row">
+            <img src="philippine.jpg" alt="Philippines flag" class="flag-icon">
+            <span>Philippines</span>
+        </div>
+    </div>
+
+    <div class="recipe-main-grid">
+
+        <div class="recipe-left">
+            <div class="video-wrapper fade-in">
+                <iframe width="600" height="400" src="https://www.youtube.com/embed/xHBsS6o9VRk" title="The BEST Adobong Baboy Recipe Quick Cooking🐖 | TENDER &amp; FLAVOR-PACKED Filipino Pork Adobo at Home!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="cultural-bg fade-in">
+                <h3>Cultural Background</h3>
+                <p>Filipino adobo is an indigenous, pre-colonial cooking method that evolved into a national cultural icon through centuries of global influence. Originally developed by early Filipinos who used local vinegar and salt to preserve meats in the tropical heat, the dish transformed when Chinese traders introduced soy sauce, creating the dark, savory version popular today. When Spanish colonizers arrived, they witnessed this native technique and labeled it adobo (from their word for marinade), a name that stuck even though the dish remains distinct from its European namesake. Today, adobo represents Filipino adaptability and identity, serving as a comfort food with countless regional variations that showcase the diverse ingredients of the archipelago.</p>
+            </div>
+            <br>
+            <div class="info-block fade-in">
+                <h3>Did You Know?</h3>
+                <p>Did you know that pork adobo taste better the next day because the meat acts like a sponge, absorbing the vinegar and soy sauce as it sits?</p>
+            </div>
+            <br>
+            <div class="rating-block">
+    <h3>Rate this Recipe</h3>
+    <div class="stars" id="starRating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <p id="ratingSummary"></p>
+</div>
+            <section class="comments-section">
+    <h3>Comments</h3>
+
+    <form id="commentForm" class="comment-form">
+        <input type="text" id="commentName" placeholder="Your name" required>
+        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+    </form>
+
+    <div id="commentList" class="comment-list"></div>
+</section>
+<br>
+
+            <div class="quote-block fade-in">
+                <img src="logo.png" alt="" class="quote-icon">
+                <p><em>More than just a dish,<br>Adobo is a taste of home.</em></p>
+            </div>
+        </div>
+
+        <div class="recipe-right">
+            
+
+            <div class="info-block fade-in">
+                <h3>Ingredients</h3>
+                <ul class="check-list">
+                    <li>Cooking Oil (2 tablespoon)</li>
+                    <li>Onion</li>
+                    <li>Pork</li>
+                    <li>Salt</li>
+                    <li>Ground Black Pepper</li>
+                    <li>Soy Sauce</li>
+                    <li>Pepper Corn</li>    
+                    <li>Oyster Sauce </li>    
+                    <li>Water</li>
+                    <li>Dried Bay Leaves</li>
+                    <li>Vinegar</li>
+                    <li>Sugar</li>
+
+                </ul>
+            </div>
+
+            <div class="info-block fade-in">
+                <h3>How to Prepare</h3>
+                <ol class="step-list">
+                    <li>Heat the cooking oil in a pan over medium heat.</li>
+                    <li>Sauté the onions until softened, then add the minced garlic and sauté until aromatic.</li>
+                    <li>Add the pork (adobo cut) into the pan.</li>
+                    <li>Season with salt and ground black pepper, then mix well so the seasoning is evenly distributed.</li>
+                    <li>Cook for a few minutes until the pork renders its own natural oil and changes color.</li>
+                    <li>Add the soy sauce, whole peppercorns, and oyster sauce, then stir briefly.</li>
+                    <li>Pour in the water and add the dried bay leaves.</li>
+                    <li>Cover and simmer for about an hour (or until the pork is tender), adding more water as needed.</li>
+                    <li>Add the vinegar and sugar to taste, allowing it to boil for a few minutes without stirring right away.</li>
+                    <li>Stir well, remove from heat, and transfer the pork adobo to a serving dish.</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+    authDomain: "food-blog-4c5f8.firebaseapp.com",
+    projectId: "food-blog-4c5f8",
+    storageBucket: "food-blog-4c5f8.firebasestorage.app",
+    messagingSenderId: "905643195046",
+    appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.db = getFirestore(app);
+  window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+  const ready = new Event('firebaseReady');
+  document.dispatchEvent(ready);
+</script>
+
+<script type="module" src="java1.js"></script>
+
+<script type="module" src="java1.js"></script>
+
+<script src="java1.js"></script>
+</body>
+</html>
