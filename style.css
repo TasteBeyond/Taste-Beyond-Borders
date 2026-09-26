@@ -495,3 +495,277 @@ border-top-right-radius: 100px 50%;
   z-index: 200;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
+
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+/* TABLET */
+@media (max-width: 900px) {
+
+  /* HEADER */
+  .landing-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 15px;
+    padding: 20px 5vw;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .landing-nav {
+    gap: 20px;
+    transform: none;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 50px 6vw 60px;
+    gap: 30px;
+  }
+
+  .hero-copy {
+    flex: 1 1 45%;
+  }
+
+  .hero-img {
+    flex: 1 1 40%;
+    max-width: 400px;
+    margin-left: 0;
+  }
+
+  /* CUISINES */
+  .cuisine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================
+   PHONE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  /* GENERAL */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .landing-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 15px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .brand-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand span {
+    font-size: 14px;
+  }
+
+  /* NAVIGATION */
+  .landing-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    transform: none;
+  }
+
+  .landing-nav a {
+    font-size: 12px;
+    padding: 7px 8px;
+  }
+
+
+  /* =========================================
+     HERO
+     ========================================= */
+
+  .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 45px 20px 50px;
+    gap: 20px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    flex: none;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+    line-height: 0.95;
+    margin-bottom: 18px;
+  }
+
+  .hero-copy h1 .accent {
+    border-radius: 20px 30%;
+  }
+
+  .hero-sub {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 25px;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .pill-cta {
+    margin-bottom: 15px;
+  }
+
+  .hero-img {
+    width: 70%;
+    max-width: 250px;
+
+    /* IMPORTANT:
+       Removes the 100px desktop margin */
+    margin-left: 0;
+
+    flex: none;
+  }
+
+
+  /* =========================================
+     CUISINES
+     ========================================= */
+
+  .cuisines {
+    width: 100%;
+    padding: 35px 20px 60px;
+  }
+
+  .cuisines h2 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .cuisines-sub {
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .cuisine-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .cuisine-card {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 14px;
+  }
+
+  .cuisine-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .cuisine-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .cuisine-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .explore-btn {
+    width: 100%;
+    padding: 11px 20px;
+  }
+
+
+  /* =========================================
+     MUSIC BUTTON
+     ========================================= */
+
+  .music-toggle {
+    width: 42px;
+    height: 42px;
+    right: 15px;
+    bottom: 15px;
+    font-size: 1rem;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  .landing-header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .landing-nav {
+    gap: 3px;
+  }
+
+  .landing-nav a {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hero-copy h1 {
+    font-size: 3rem;
+  }
+
+  .hero-sub {
+    font-size: 0.82rem;
+  }
+
+  .hero-img {
+    width: 65%;
+  }
+
+  .cuisines {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
