@@ -1,0 +1,1308 @@
+/* ============================================================
+   TASTE BEYOND BORDERS — Recipe Detail Page Stylesheet
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------ */
+:root{
+  --navy-900: #0a1428;
+  --navy-800: #0c1c3d;
+  --navy-700: #122448;
+
+  --amber-500: #E8951E;
+  --amber-400: #ffb648;
+  --amber-300: #ffca7a;
+
+  --rust-500: #C1440E;
+
+  --ink-000: #ffffff;
+  --ink-100: rgba(255,255,255,0.92);
+  --ink-200: rgba(255,255,255,0.75);
+  --ink-300: rgba(255,255,255,0.60);
+  --ink-400: rgba(255,255,255,0.40);
+
+  --line-soft:  rgba(255,255,255,0.08);
+  --line-mid:   rgba(255,255,255,0.15);
+  --line-amber: rgba(232,149,30,0.35);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:    'Manrope', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+
+  --gutter:    6vw;
+  --section-y: 80px;
+
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-pill: 999px;
+
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:   0.25s;
+  --dur-mid:    0.45s;
+  --dur-slow:   0.70s;
+
+  --shadow-sm:    0 2px 8px rgba(0,0,0,0.25);
+  --shadow-md:    0 8px 24px rgba(0,0,0,0.35);
+  --shadow-lg:    0 20px 48px rgba(0,0,0,0.55);
+  --shadow-amber: 0 0 20px rgba(232,149,30,0.55);
+}
+
+/* ------------------------------------------------------------
+   BACKGROUND VIDEO + OVERLAY
+   ------------------------------------------------------------ */
+.bg-video{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.bg-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 28, 61, 0.72);
+  z-index: -1;
+}
+
+/* ------------------------------------------------------------
+   2. BASE
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html{
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background: none;           /* ← video background now shows through */
+}
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  color: var(--ink-000);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+button{ font-family: inherit; }
+
+:focus-visible{
+  outline: 2px solid var(--amber-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ------------------------------------------------------------
+   3. BUTTONS
+   ------------------------------------------------------------ */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) ease,
+    background var(--dur-fast) ease,
+    letter-spacing var(--dur-fast) ease;
+}
+
+.btn-primary{
+  background: var(--amber-500);
+  color: var(--navy-800);
+}
+.btn-primary:hover{
+  background: var(--amber-400);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-amber);
+  letter-spacing: 0.4px;
+}
+
+/* ------------------------------------------------------------
+   4. HEADER
+   ------------------------------------------------------------ */
+.landing-header{
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 22px var(--gutter);
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
+.brand-logo{
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.18);
+}
+
+.landing-nav{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.landing-nav a{
+  color: var(--ink-300);
+  position: relative;
+  padding: 4px 0;
+  transition: color var(--dur-fast) ease;
+}
+
+.landing-nav a::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: var(--amber-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.landing-nav a:hover,
+.landing-nav a.active{ color: var(--amber-500); }
+
+.landing-nav a:hover::after,
+.landing-nav a.active::after{ transform: scaleX(1); }
+
+.header-actions{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.search-btn{
+  background: none;
+  border: none;
+  color: var(--ink-100);
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur-fast), transform var(--dur-fast);
+}
+.search-btn:hover{ color: var(--amber-500); transform: scale(1.08); }
+
+.login-btn{
+  background: var(--amber-500);
+  color: var(--navy-800);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+}
+.login-btn:hover{
+  box-shadow: var(--shadow-amber);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   5. RECIPE DETAIL PAGE — nav overrides
+   ------------------------------------------------------------ */
+.recipe-detail-page .landing-nav a{
+  color: var(--ink-200);
+}
+
+.recipe-detail-page .landing-nav a.active,
+.recipe-detail-page .landing-nav a:hover{
+  color: var(--rust-500);
+}
+
+.recipe-detail-page .landing-nav a::after{
+  background: var(--rust-500);
+}
+
+.recipe-detail-page .brand{
+  color: var(--ink-000);
+}
+
+/* ------------------------------------------------------------
+   6. RECIPE CONTAINER
+   ------------------------------------------------------------ */
+.recipe-container{
+  width: 100%;
+  padding: 20px 0 80px var(--gutter);
+}
+
+.recipe-main-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  max-width: none;
+}
+
+.recipe-left,
+.recipe-right{
+  min-width: 0;
+}
+
+.recipe-right{
+  padding-right: var(--gutter);
+}
+
+.back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink-200);
+  margin-bottom: 24px;
+  transition: color var(--dur-fast), gap var(--dur-fast);
+}
+
+.back-link:hover{
+  color: var(--rust-500);
+  gap: 10px;
+}
+
+/* ------------------------------------------------------------
+   7. TITLE
+   ------------------------------------------------------------ */
+.recipe-title-row{
+  margin-bottom: 30px;
+}
+
+.recipe-title-row h1{
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  color: var(--amber-500);
+  display: inline-block;
+  position: relative;
+}
+
+.recipe-title-row h1::after{
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 14px;
+  background: var(--rust-500);
+  border-radius: 2px;
+}
+
+.recipe-flag-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink-200);
+}
+
+.flag-icon{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.18);
+}
+
+/* ------------------------------------------------------------
+   8. VIDEO
+   ------------------------------------------------------------ */
+.video-wrapper{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--navy-900);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.video-wrapper iframe,
+.video-wrapper video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.video-wrapper video{
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   9. CULTURAL / INFORMATION BLOCKS
+   ------------------------------------------------------------ */
+.cultural-bg h3,
+.info-block h3{
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+  color: var(--rust-500);
+  margin: 0 0 10px;
+  position: relative;
+}
+
+.cultural-bg h3::after,
+.info-block h3::after{
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--rust-500);
+  border-radius: 2px;
+}
+
+.cultural-bg p,
+.info-block p{
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 16px;
+}
+
+.info-block{
+  margin-bottom: 30px;
+}
+
+.info-block h4{
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--amber-500);
+  margin: 20px 0 8px;
+  letter-spacing: 0.3px;
+}
+.info-block h4:first-of-type{ margin-top: 8px; }
+
+/* ------------------------------------------------------------
+   10. QUOTE BLOCK
+   ------------------------------------------------------------ */
+.quote-block{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--rust-500);
+  border-radius: var(--radius-sm);
+}
+
+.quote-icon{
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.quote-block p{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-100);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   11. INGREDIENTS
+   ------------------------------------------------------------ */
+.check-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.check-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-100);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.check-list li:last-child{
+  border-bottom: none;
+}
+
+.check-list li::before{
+  content: "✓";
+  color: var(--rust-500);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   12. PREPARATION STEPS
+   ------------------------------------------------------------ */
+.step-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step;
+}
+
+.step-list li{
+  position: relative;
+  padding: 10px 0 10px 44px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-100);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.step-list li:last-child{
+  border-bottom: none;
+}
+
+.step-list li::before{
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--rust-500);
+  color: var(--ink-000);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------
+   13. FADE-IN
+   ------------------------------------------------------------ */
+.fade-in{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.fade-in.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   14. MUSIC TOGGLE
+   ------------------------------------------------------------ */
+.music-toggle{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--amber-500);
+  color: var(--navy-800);
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+}
+.music-toggle:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-amber);
+}
+
+/* ------------------------------------------------------------
+   15. COMMENTS
+   ------------------------------------------------------------ */
+.comments-section{
+  margin: 40px 0 0 0;
+  padding: 0;
+}
+
+.comments-section h3{
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+  margin: 0 0 18px;
+  color: var(--ink-000);
+}
+
+.comment-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.comment-form input,
+.comment-form textarea{
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-mid);
+  background: rgba(255,255,255,0.05);
+  color: var(--ink-000);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.comment-form input::placeholder,
+.comment-form textarea::placeholder{
+  color: var(--ink-400);
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus{
+  outline: none;
+  border-color: var(--rust-500);
+  background: rgba(255,255,255,0.08);
+}
+
+.comment-form textarea{
+  min-height: 90px;
+}
+
+.comment-list{
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.comment-list::-webkit-scrollbar{ width: 6px; }
+.comment-list::-webkit-scrollbar-track{ background: transparent; }
+.comment-list::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.22);
+  border-radius: 10px;
+}
+.comment-list::-webkit-scrollbar-thumb:hover{
+  background: rgba(255,255,255,0.32);
+}
+
+.comment-item{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.comment-item:hover{
+  border-color: var(--line-mid);
+  background: rgba(255,255,255,0.07);
+}
+
+.comment-item strong{
+  color: var(--amber-500);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.2px;
+}
+
+.comment-item p{
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-200);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.comment-item p.expanded{
+  -webkit-line-clamp: unset;
+}
+
+/* ------------------------------------------------------------
+   16. RATINGS
+   ------------------------------------------------------------ */
+.rating-block{
+  margin: 40px 0;
+}
+
+.rating-block h3{
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+  margin: 0 0 14px;
+}
+
+.stars{
+  display: flex;
+  gap: 8px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.star{
+  color: rgba(255,255,255,0.22);
+  transition: color 0.2s ease, transform 0.25s var(--ease-out);
+  user-select: none;
+}
+
+.star:hover,
+.star.hovered{
+  transform: scale(1.15);
+  color: var(--amber-400);
+}
+
+.star.selected{
+  color: var(--amber-500);
+}
+
+#ratingSummary{
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--ink-300);
+  letter-spacing: 0.2px;
+}
+
+/* ------------------------------------------------------------
+   17. SEARCH OVERLAY
+   ------------------------------------------------------------ */
+.search-box{
+  position: fixed;
+  top: 12px;
+  right: var(--gutter);
+
+  display: none;
+  align-items: center;
+  gap: 8px;
+
+  background: rgba(12, 28, 61, 0.96);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line-mid);
+
+  z-index: 9999;
+
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.search-box.show{ display: flex; }
+
+.search-box input{
+  width: 240px;
+  padding: 11px 16px;
+
+  border: none;
+  outline: none;
+  border-radius: var(--radius-pill);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  background: rgba(255,255,255,0.06);
+  color: var(--ink-000);
+}
+.search-box input::placeholder{ color: var(--ink-400); }
+
+.search-box button{
+  border: none;
+  background: var(--amber-500);
+  color: var(--navy-800);
+
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform var(--dur-fast);
+}
+.search-box button:hover{ transform: translateY(-2px); }
+
+/* ------------------------------------------------------------
+   18. RESPONSIVE — tablet
+   ------------------------------------------------------------ */
+@media (max-width: 900px){
+
+  :root{ --gutter: 5vw; --section-y: 60px; }
+
+  .landing-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px var(--gutter);
+  }
+
+  .landing-nav{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .header-actions{ justify-content: center; }
+
+  .recipe-container{
+    width: 90%;
+    padding: 20px 0 60px;
+    margin: 0 auto;
+  }
+
+  .recipe-main-grid{
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .recipe-right{
+    padding-right: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   19. RESPONSIVE — phone
+   ------------------------------------------------------------ */
+@media (max-width: 600px){
+
+  html, body{
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .landing-header{
+    width: 100%;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand{
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-logo{
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand span{
+    font-size: 14px;
+  }
+
+  .landing-nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .landing-nav a{
+    font-size: 12.5px;
+    padding: 6px 8px;
+  }
+
+  .recipe-container{
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px 60px;
+    margin: 0;
+  }
+
+  .back-link{
+    font-size: 13.5px;
+    margin-bottom: 20px;
+  }
+
+  .recipe-title-row{
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .recipe-title-row h1{
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .recipe-title-row h1::after{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .recipe-flag-row{
+    justify-content: center;
+    font-size: 13.5px;
+  }
+
+  .flag-icon{
+    width: 28px;
+    height: 28px;
+  }
+
+  .recipe-main-grid{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 22px;
+  }
+
+  .recipe-left,
+  .recipe-right{
+    width: 100%;
+    min-width: 0;
+  }
+
+  .video-wrapper{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+    border-radius: var(--radius-sm);
+  }
+
+  .cultural-bg,
+  .info-block,
+  .rating-block,
+  .comments-section,
+  .quote-block{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cultural-bg h3,
+  .info-block h3,
+  .comments-section h3,
+  .rating-block h3{
+    font-size: 1.15rem;
+  }
+
+  .cultural-bg p,
+  .info-block p{
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .check-list li{
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 8px 0;
+  }
+
+  .step-list li{
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 10px 0 10px 40px;
+  }
+
+  .step-list li::before{
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
+    top: 10px;
+  }
+
+  .comments-section{
+    margin-top: 30px;
+  }
+
+  .comment-form{
+    width: 100%;
+  }
+
+  .comment-form input,
+  .comment-form textarea{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .comment-form button{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rating-block{
+    margin: 30px 0;
+  }
+
+  .stars{
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .quote-block{
+    flex-direction: column;
+    text-align: center;
+    margin-top: 25px;
+    gap: 12px;
+  }
+
+  .music-toggle{
+    width: 44px;
+    height: 44px;
+    right: 16px;
+    bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .search-box{
+    top: 120px;
+    right: 15px;
+    left: 15px;
+    justify-content: center;
+  }
+  .search-box input{
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   20. RESPONSIVE — small phones
+   ------------------------------------------------------------ */
+@media (max-width: 380px){
+
+  .recipe-container{
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .landing-nav{ gap: 2px; }
+  .landing-nav a{ font-size: 11.5px; padding: 5px 6px; }
+
+  .recipe-title-row h1{ font-size: 1.95rem; }
+
+  .cultural-bg p,
+  .info-block p,
+  .check-list li,
+  .step-list li{ font-size: 13px; }
+}
+
+/* ------------------------------------------------------------
+   21. REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+.loader{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center,
+      rgba(12,28,61,0.96) 0%,
+      rgba(6,12,24,1) 70%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader.hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  animation: loaderFadeIn 0.6s ease both;
+}
+
+.loader-logo{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.20);
+  box-shadow:
+    0 0 0 12px rgba(232,149,30,0.10),
+    0 0 70px rgba(232,149,30,0.45);
+  animation: loaderPulse 1.8s ease-in-out infinite;
+}
+
+.loader-text{
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: 0.5px;
+  color: var(--amber-500);
+  margin: 0;
+}
+
+.loader-bar{
+  width: 260px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar span{
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg,
+    rgba(232,149,30,0) 0%,
+    var(--amber-500) 50%,
+    rgba(232,149,30,0) 100%);
+  animation: loaderBar 1.2s linear infinite;
+}
+
+@keyframes loaderPulse{
+  0%,100%{ transform: scale(1);     box-shadow: 0 0 0 12px rgba(232,149,30,0.10), 0 0 70px rgba(232,149,30,0.45); }
+  50%    { transform: scale(1.05);  box-shadow: 0 0 0 18px rgba(232,149,30,0.06), 0 0 90px rgba(232,149,30,0.65); }
+}
+
+@keyframes loaderBar{
+  0%  { left: -40%; }
+  100%{ left: 100%; }
+}
+
+@keyframes loaderFadeIn{
+  from{ opacity: 0; transform: translateY(10px); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .loader-logo{ animation: none; }
+  .loader-bar span{ animation: none; }
+}
+
+@media (max-width: 1000px){
+  .loader-logo{ width: 180px; height: 180px; }
+  .loader-text{ font-size: 1.3rem; }
+  .loader-bar{ width: 220px; }
+}
+
+@media (max-width: 768px){
+  .loader-logo{ width: 150px; height: 150px; border-width: 3px; }
+  .loader-text{ font-size: 1.15rem; }
+  .loader-bar{ width: 180px; height: 3px; }
+}
+
+@media (max-width: 380px){
+  .loader-logo{ width: 120px; height: 120px; }
+  .loader-text{ font-size: 1rem; }
+  .loader-bar{ width: 150px; }
+}
+
+/* ============================================================
+   MOBILE NAVIGATION & HEADER FIXES
+   ============================================================ */
+
+/* 1. Hide the menu button on desktop by default */
+.menu-button {
+    display: none;
+}
+
+/* 2. Desktop override to ensure the button stays hidden */
+@media (min-width: 769px) {
+    .menu-button {
+        display: none !important;
+    }
+}
+
+/* 3. Mobile Styles */
+@media (max-width: 768px) {
+    
+    /* --- HEADER LAYOUT (Logo left, Button right) --- */
+    .landing-header {
+        display: flex;
+        flex-direction: row;           
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        position: relative; /* Crucial for centering the dropdown */
+    }
+
+    .brand {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* --- THE MENU / CLOSE BUTTON --- */
+        /* --- THE MENU / CLOSE BUTTON --- */
+    .menu-button {
+        display: inline-block;
+        
+        /* NEW GOLD STYLING */
+        background-color: var(--amber-500); /* Gold background */
+        color: var(--navy-900);             /* Dark text */
+        border: none;                       /* Remove the border */
+        
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 0;
+        z-index: 100;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .menu-button:hover {
+        background-color: var(--amber-400); /* Lighter gold on hover */
+        transform: translateY(-2px);        /* Tiny lift effect */
+    }
+
+    /* --- THE DROPDOWN MENU (Centered & Gradient Border) --- */
+    .landing-nav {
+        display: none; /* Hidden until JS opens it */
+        
+        /* Centering Logic */
+        position: absolute;
+        top: 100%; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        
+        width: 90%; 
+        max-width: 400px;
+        flex-direction: column;
+        align-items: stretch;
+        
+        /* Dark glass background */
+        background-color: rgba(12, 28, 61, 0.95); 
+        backdrop-filter: blur(16px);        
+        -webkit-backdrop-filter: blur(16px);
+        
+        border-radius: 16px;
+        padding: 10px 24px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.8); 
+        
+        /* Blue-to-Red Gradient Border */
+        border: 1px solid transparent;
+        background: linear-gradient(rgba(12, 28, 61, 0.95), rgba(12, 28, 61, 0.95)) padding-box,
+                    linear-gradient(160deg, rgba(46, 33, 231, 0.9), rgba(235, 42, 42, 0.9)) border-box;
+        
+        text-align: left;
+        z-index: 99; 
+    }
+
+    /* Class added by JavaScript to show the menu */
+    .landing-nav.open {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    /* --- MENU LINKS --- */
+    .landing-nav a {
+        color: #ffffff;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover effect for links */
+    .landing-nav a:hover {
+        color: #E8951E;
+        padding-left: 8px; /* Slight slide effect */
+    }
+
+    /* --- ACTIVE LINK (Blue-to-Red Gradient underline) --- */
+    .landing-nav a.active {
+        color: #ffffff; 
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(90deg, rgba(46, 33, 231, 1), rgba(235, 42, 42, 1)) 1;
+    }
+
+    /* Search Button inside the dropdown */
+    .landing-nav .header-actions {
+        padding: 16px 0;
+        justify-content: flex-start; 
+    }
+    
+    .landing-nav .search-btn {
+        color: #ffffff;
+        font-size: 1.2rem;
+    }
+
+    /* --- ANIMATION --- */
+    @keyframes slideDown {
+        from { 
+            opacity: 0; 
+            transform: translate(-50%, -15px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translate(-50%, 0); 
+        }
+    }
+}

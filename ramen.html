@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheap, Quick and Easy Shoyu Ramen | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Ramen (Shoyu)</h1>
+            <div class="recipe-flag-row">
+                <img src="jap.jfif" alt="Japan flag" class="flag-icon">
+                <span>Japan</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/r3_tcQiyGG8" title="Cheap, Quick and Easy Shoyu Ramen Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Shoyu (soy sauce) ramen is one of Japan's most classic and iconic ramen styles, originating in Tokyo during the early 20th century. Traditional shoyu ramen features a clear, savory broth made from chicken or pork stock combined with a soy sauce-based seasoning tare. This quick homemade version captures the rich, umami-packed flavor profile of authentic Japanese ramen using simple pantry staples and instant techniques.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that adding a small spoonful of lard or chicken fat to the bowl is essential for authentic ramen flavor? The fat insulates the soup to keep it hot, adds a silky mouthfeel, and carries all the aromas of the ginger and soy sauce!</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>If you can boil water,<br>you can make delicious ramen at home.</em></p>
+                </div>
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <h4>Ramen Base &amp; Soup</h4>
+                    <ul class="check-list">
+                        <li>1 tbsp Soy Sauce (preferably Japanese)</li>
+                        <li>1 tsp Chicken Stock Powder (Chinese or Japanese)</li>
+                        <li>1 to 1.5 tsp Lard (or Schmaltz / Chicken Fat)</li>
+                        <li>1/4 tsp Grated Fresh Ginger</li>
+                        <li>Sliced Green Onions (white part preferred)</li>
+                        <li>300 ml (approx. 1 1/4 cups) Boiling Water</li>
+                        <li>1 portion Fresh or Dried Ramen Noodles</li>
+                    </ul>
+
+                    <h4>Quick Ajitama (Ramen Egg)</h4>
+                    <ul class="check-list">
+                        <li>1 Large Egg</li>
+                        <li>1 tbsp Soy Sauce</li>
+                        <li>1 tbsp Sake</li>
+                        <li>1 tsp Sugar</li>
+                    </ul>
+
+                    <h4>Optional Toppings</h4>
+                    <ul class="check-list">
+                        <li>Nori (Dried Seaweed)</li>
+                        <li>Sliced Green Onion Tops</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Prepare Quick Ajitama:</strong> Poke a small hole in the bottom of the egg shell [00:00:27]. Boil in water for 6 to 7 minutes for a runny yolk [00:00:31], then cool in an ice bath and peel [00:00:43].</li>
+                        <li><strong>Glaze the Egg:</strong> In a small pan, combine 1 tbsp soy sauce, 1 tbsp sake, and 1 tsp sugar over low heat [00:00:49]. Once tiny bubbles form, add the peeled egg and roll continuously in the sauce for 4–5 minutes until coated and deep in color [00:01:00].</li>
+                        <li><strong>Build Soup Base:</strong> Directly in your serving bowl, add 1 tbsp soy sauce, 1 tsp chicken stock powder, 1 to 1.5 tsp lard, grated ginger, and chopped green onions [00:02:02].</li>
+                        <li><strong>Cook Noodles:</strong> Boil your choice of ramen noodles according to package instructions [00:02:35].</li>
+                        <li><strong>Combine &amp; Serve:</strong> Pour 300 ml of boiling hot water into the bowl over the ingredients and stir until fully dissolved [00:02:42]. Thoroughly strain the cooked noodles to remove excess water, add to the bowl, and top with sliced soft-boiled egg, green onions, and nori [00:02:49].</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

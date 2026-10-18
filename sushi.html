@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Homemade Sushi | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Simple Homemade Sushi</h1>
+            <div class="recipe-flag-row">
+                <img src="jap.jfif" alt="Japan flag" class="flag-icon">
+                <span>Japan</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/joweUxpHaqc" title="How to make Simple Sushi at home | step-by-step SUSHI recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Sushi originated in Southeast Asia as a method of preserving raw fish in fermented rice (narezushi). Over centuries in Japan, it evolved into Edo-style sushi (edomae sushi), where fresh raw fish was served over seasoned vinegared rice for quick consumption. Today, maki (rolled sushi) and nigiri are enjoyed globally as iconic representations of Japanese culinary art, emphasizing simple, fresh, and high-quality ingredients.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that wrapping your bamboo rolling mat in plastic wrap prevents sushi rice from sticking to the mat, making both rolling and cleanup vastly easier?</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>More than just a meal,<br>sushi is a craft made simple at home.</em></p>
+                </div>
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <h4>Sushi Rice &amp; Seasoning</h4>
+                    <ul class="check-list">
+                        <li>2 cups Short-Grain Sushi Rice</li>
+                        <li>2 cups Water</li>
+                        <li>3 tbsp Rice Vinegar</li>
+                        <li>1 tbsp Sugar</li>
+                        <li>1 tsp Salt</li>
+                    </ul>
+
+                    <h4>Fillings &amp; Essentials</h4>
+                    <ul class="check-list">
+                        <li>Nori (Dried Seaweed Sheets)</li>
+                        <li>Sashimi-grade Salmon or Tuna (or cooked fillings like crab sticks)</li>
+                        <li>Cucumber (julienned)</li>
+                        <li>Avocado (thinly sliced)</li>
+                    </ul>
+
+                    <h4>To Serve</h4>
+                    <ul class="check-list">
+                        <li>Soy Sauce</li>
+                        <li>Wasabi</li>
+                        <li>Pickled Ginger</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Prepare Sushi Rice:</strong> Rinse sushi rice until the water runs clear. Cook in a rice cooker or stovetop with equal parts water. Combine rice vinegar, sugar, and salt; fold gently into warm cooked rice and let cool to room temperature.</li>
+                        <li><strong>Setup Mat:</strong> Cover a bamboo sushi mat (makisu) with plastic wrap to prevent sticking. Place a sheet of nori shiny-side down on the mat.</li>
+                        <li><strong>Spread Rice:</strong> Wet hands with water (to prevent sticking) and spread a thin layer of sushi rice evenly across the nori, leaving about 1 inch empty at the top edge.</li>
+                        <li><strong>Add Fillings:</strong> Lay strips of fish, cucumber, and avocado horizontally across the lower third of the rice layer.</li>
+                        <li><strong>Roll Sushi:</strong> Lift the edge of the mat closest to you and firmly roll over the fillings, tucking them in tightly as you roll forward until sealed.</li>
+                        <li><strong>Slice &amp; Serve:</strong> Use a sharp, wet knife to cut the roll cleanly into bite-sized pieces. Serve with soy sauce, wasabi, and pickled ginger.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

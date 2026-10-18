@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo-Halo with Custard Milk | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Halo-Halo</h1>
+            <div class="recipe-flag-row">
+                <img src="philippine.jpg" alt="Philippines flag" class="flag-icon">
+                <span>Philippines</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/QfP5Mk8I-co" title="TRENDING HALO-HALO WITH CUSTARD MILK RECIPE! PATOK PANGNEGOSYO!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Halo-Halo (meaning "mix-mix" in Tagalog) is the ultimate Filipino summer dessert, originating from Japanese shaved ice treats like kakigori that were brought to the Philippines prior to World War II. Over decades, Filipinos adapted the dessert into a vibrant, multi-layered masterpiece combining sweet preserved fruits, jellies, beans, and rich dairy over shaved ice. This modern variation elevates the traditional recipe by substituting standard milk with a rich, velvety homemade custard milk and custom-made toppings like ube kamote halaya.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that using custard milk instead of regular evaporated milk gives Halo-Halo a much richer, creamier texture that prevents the ice from diluting the flavor too quickly as it melts?</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>More than just a dessert,<br>Halo-Halo is a celebration of Filipino summer.</em></p>
+                </div>
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <h4>Ube Kamote Halaya</h4>
+                    <ul class="check-list">
+                        <li>1/2 kg Purple Sweet Potato (boiled &amp; grated)</li>
+                        <li>1 can (370 ml) Evaporated Milk</li>
+                        <li>1 can (380 g) Condensed Milk</li>
+                        <li>1 tbsp Ube Flavoring</li>
+                        <li>1 tsp Vanilla Extract</li>
+                        <li>1 tbsp Butter</li>
+                    </ul>
+
+                    <h4>Minatamis na Saging</h4>
+                    <ul class="check-list">
+                        <li>2 cups Water</li>
+                        <li>1/2 cup Brown Sugar</li>
+                        <li>7 pcs Saba Bananas (sliced)</li>
+                        <li>Yellow Food Color (optional)</li>
+                    </ul>
+
+                    <h4>Custard Milk Base</h4>
+                    <ul class="check-list">
+                        <li>1 can (370 ml) Evaporated Milk</li>
+                        <li>1 can (380 g) Condensed Milk</li>
+                        <li>3 tbsp Sugar</li>
+                        <li>3 Egg Yolks</li>
+                        <li>1/2 cup Water</li>
+                        <li>Yellow Food Color</li>
+                    </ul>
+
+                    <h4>Gelatin Cubes &amp; Assembly</h4>
+                    <ul class="check-list">
+                        <li>1 pack Gelatin Powder (Green or White)</li>
+                        <li>3 cups Water</li>
+                        <li>Garbanzos (Sweetened Chickpeas)</li>
+                        <li>Pinipig (Toasted Rice Flakes)</li>
+                        <li>Crushed Ice</li>
+                        <li>Leche Flan (sliced for topping)</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Prepare Ube Kamote Halaya:</strong> In a pan, combine grated boiled sweet potato, evaporated milk, condensed milk, ube flavoring, and vanilla. Cook over medium heat while stirring continuously until thick. Stir in butter, let cool, and set aside.</li>
+                        <li><strong>Prepare Minatamis na Saging:</strong> Boil water and brown sugar in a pan. Add sliced saba bananas and cook until the syrup reduces and thickens. Add yellow food coloring if desired and let cool.</li>
+                        <li><strong>Make Custard Milk:</strong> Whisk evaporated milk, condensed milk, sugar, and egg yolks in a pan over medium heat until boiling. Add water and yellow food color. Whisk continuously until bubbling, then strain through a mesh sieve and let cool.</li>
+                        <li><strong>Prepare Gelatin:</strong> Stir gelatin powder, water, and green food color in a pan over medium heat until boiling. Pour into a mold, let set, and cut into cubes.</li>
+                        <li><strong>Assemble Halo-Halo:</strong> In a 22 oz cup, place sweetened saba bananas, green gelatin cubes, garbanzos, and pinipig at the bottom.</li>
+                        <li>Spread a layer of Ube Kamote Halaya along the inside wall of the cup.</li>
+                        <li>Add 1 tablespoon of sugar, then tightly pack with shaved or crushed ice.</li>
+                        <li>Pour 1/2 cup of prepared Custard Milk evenly over the ice.</li>
+                        <li>Top with another dollop of Ube Kamote Halaya and a slice of Leche Flan before serving.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

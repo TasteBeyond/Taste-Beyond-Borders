@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicol Express | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Bicol Express</h1>
+
+            <div class="recipe-flag-row">
+                <img src="philippine.jpg" alt="Philippines flag" class="flag-icon">
+                <span>Philippines</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/EglwOEDdsHU" title="How To Cook Pork Bicol Express - Pinoy Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Bicol Express Explanation</h3>
+                    <p>Bicol Express is a popular Filipino dish known for its rich, creamy, and spicy flavor. It is made with pork cooked in coconut milk, chili peppers, shrimp paste, garlic, onion, and other seasonings. The dish is strongly associated with the Bicol Region, which is known for its love of spicy food and the use of coconut milk in many traditional dishes. Its combination of creamy coconut milk and spicy chili gives Bicol Express its distinct and flavorful taste.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know About Bicol Express?</h3>
+                    <p>Did you know that Bicol Express is named after the passenger train that travels between Manila and the Bicol Region? The dish became popular because of its rich coconut-based sauce and spicy flavor, which reflects the food culture commonly associated with Bicol.</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>More than just a dish,<br>Bicol Express is a taste of Bicol.</em></p>
+                </div>
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <ul class="check-list">
+                        <li>Pork Belly or Pork Shoulder</li>
+                        <li>Coconut Milk</li>
+                        <li>Coconut Cream</li>
+                        <li>Chili Peppers</li>
+                        <li>Shrimp Paste (Bagoong Alamang)</li>
+                        <li>Garlic</li>
+                        <li>Onion</li>
+                        <li>Ginger</li>
+                        <li>Cooking Oil</li>
+                        <li>Salt</li>
+                        <li>Ground Black Pepper</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li>Heat the cooking oil in a pan over medium heat.</li>
+                        <li>Sauté the garlic, onion, and ginger until fragrant and softened.</li>
+                        <li>Add the pork and cook until it becomes lightly browned.</li>
+                        <li>Add the shrimp paste and mix well with the pork.</li>
+                        <li>Pour in the coconut milk and stir to combine.</li>
+                        <li>Cover the pan and simmer until the pork becomes tender.</li>
+                        <li>Add the chili peppers and coconut cream.</li>
+                        <li>Continue simmering until the sauce becomes thick and creamy.</li>
+                        <li>Season with salt and ground black pepper according to taste.</li>
+                        <li>Stir well, remove from heat, and serve the Bicol Express while hot.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

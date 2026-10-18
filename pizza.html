@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Homemade Pizza Dough | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Pizza</h1>
+            <div class="recipe-flag-row">
+                <img src="italy.jfif" alt="Italy flag" class="flag-icon">
+                <span>Italy</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <div class="recipe-left">
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/3q-0dPDkbZU" title="Best Homemade Pizza Dough for beginners (Easy and Delicious)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Pizza dough has its roots in ancient flatbreads served across the Mediterranean, but modern pizza dough as we know it was perfected in Naples, Italy during the 18th century. Traditional Neapolitan dough relies on simple fermentation of flour, water, yeast, and salt. Today, homemade artisan pizza dough allows home cooks to recreate bakery-quality, crisp yet chewy crusts directly from their home ovens.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that letting your mixed shaggy dough rest for 10 minutes before kneading (autolyse) allows the flour to absorb the water naturally? This simple trick makes kneading significantly easier and develops a better crust structure!</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>Five simple ingredients,<br>endless delicious pizza possibilities!</em></p>
+                </div>
+            </div>
+
+            <div class="recipe-right">
+                <div class="info-block fade-in">
+                    <h3>Ingredients (Makes two 14-inch pizzas)</h3>
+
+                    <ul class="check-list">
+                        <li>4 cups Bread Flour (or All-Purpose Flour)</li>
+                        <li>1 1/3 cups Warm Water</li>
+                        <li>2 tsp Salt</li>
+                        <li>1 tsp Instant Yeast</li>
+                        <li>2 tsp Olive Oil</li>
+                    </ul>
+
+                    <h4>Suggested Toppings</h4>
+                    <ul class="check-list">
+                        <li>Pizza Sauce or Marinara</li>
+                        <li>Shredded Mozzarella Cheese</li>
+                        <li>Fresh Basil or Pepperoni</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Mix Liquid &amp; Yeast:</strong> Add 1 1/3 cups warm water to a large mixing bowl, sprinkle in 1 tsp instant yeast, and give it a quick stir [00:00:51].</li>
+                        <li><strong>Combine Ingredients:</strong> Add flour to the bowl, sprinkle salt on top of the flour (avoid direct contact with yeast), and pour in olive oil [00:01:00]. Mix with your hands or a fork until fully incorporated into a shaggy dough [00:01:11].</li>
+                        <li><strong>Rest Dough:</strong> Cover the bowl and let the shaggy dough rest for 10 minutes to allow the flour to hydrate [00:01:27].</li>
+                        <li><strong>Knead:</strong> Transfer dough to a countertop and knead by pressing with the heel of your hand, folding, and turning for 5 to 7 minutes until smooth and elastic [00:01:36].</li>
+                        <li><strong>First Rise:</strong> Place in a lightly oiled bowl, cover, and let rise at room temperature for 90 minutes to 2 hours until doubled in size [00:01:51].</li>
+                        <li><strong>Divide &amp; Shape:</strong> Gently punch down the dough, divide into two equal portions, shape into smooth balls, and let rest for 1 hour [00:02:01].</li>
+                        <li><strong>Stretch &amp; Bake:</strong> Gently press and stretch the dough out into a 14-inch circle [00:02:25]. Top as desired and bake in a preheated 500°F (260°C) oven with a baking steel or stone for 7 to 10 minutes [00:02:35].</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

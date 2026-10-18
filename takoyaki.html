@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade Takoyaki | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Takoyaki (Japanese Octopus Balls)</h1>
+            <div class="recipe-flag-row">
+                <img src="jap.jfif" alt="Japan flag" class="flag-icon">
+                <span>Japan</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe width="600" height="400" src="https://www.youtube.com/embed/ciQ9gzK9IWM" title="Homemade Takoyaki Recipe (Japanese Fried Octopus Balls)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Takoyaki is an iconic street food originating from Osaka, Japan, invented by a street vendor named Tomekichi Endo in 1935. Inspired by radio-yaki (a small spherical dumpling filled with beef and scallions), Endo switched to octopus (tako) and seasoned batter, creating a savory, golden-brown snack that became hugely popular nationwide. Today, takoyaki stalls are a staple at Japanese festivals, night markets, and home gatherings cooked over special molded iron pans.</p>
+                </div>
+                <br>
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that adding tempura flakes (tenkasu) to the takoyaki batter is the secret to getting a light, crispy exterior while keeping the center deliciously gooey and soft?</p>
+                </div>
+                <br>
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>Crispy on the outside, gooey on the inside—<br>Takoyaki is the ultimate Japanese street food experience.</em></p>
+                </div>
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <h4>Batter</h4>
+                    <ul class="check-list">
+                        <li>500 ml Dashi Stock (cooled)</li>
+                        <li>1 Medium Egg</li>
+                        <li>100 g Cake Flour</li>
+                        <li>1 tsp Tsuyu Sauce (or soy sauce)</li>
+                        <li>Sesame Oil (for cooking)</li>
+                    </ul>
+
+                    <h4>Fillings</h4>
+                    <ul class="check-list">
+                        <li>120 g Boiled Octopus (diced)</li>
+                        <li>4 tbsp Red Pickled Ginger (benishoga)</li>
+                        <li>50 g Green Onion (chopped)</li>
+                        <li>30 g Tempura Flakes (tenkasu)</li>
+                    </ul>
+
+                    <h4>Takoyaki Sauce</h4>
+                    <ul class="check-list">
+                        <li>1 1/2 tbsp Worcestershire Sauce</li>
+                        <li>1/2 tbsp Tsuyu Sauce (or soy sauce with a bit of sugar)</li>
+                        <li>1/2 tbsp Tomato Ketchup</li>
+                        <li>1 tbsp Honey</li>
+                    </ul>
+
+                    <h4>Toppings</h4>
+                    <ul class="check-list">
+                        <li>Japanese Mayonnaise</li>
+                        <li>Dried Green Laver Powder (Aonori)</li>
+                        <li>Bonito Flakes (Katsuobushi)</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Make Takoyaki Sauce:</strong> Whisk together Worcestershire sauce, tsuyu sauce, tomato ketchup, and honey in a small bowl until smooth. Set aside.</li>
+                        <li><strong>Prepare Batter:</strong> Whisk cooled dashi stock, egg, and tsuyu sauce in a bowl. Sift in the cake flour and mix gently until fully combined without lumps.</li>
+                        <li><strong>Heat &amp; Oil Pan:</strong> Heat a takoyaki pan over medium heat and generously coat all the mold cavities with sesame oil.</li>
+                        <li><strong>Pour &amp; Fill:</strong> Pour the batter into each mold cavity until generously full. Drop a piece of octopus into each hole, then evenly scatter the chopped green onions, pickled ginger, and tempura flakes over the entire pan.</li>
+                        <li><strong>Rotate &amp; Shape:</strong> As the edges cook and set, use skewers to separate the batter, tuck the excess filling into each cavity, and turn the balls 90 degrees. Continuously turn until round and evenly golden-brown.</li>
+                        <li><strong>Garnish &amp; Serve:</strong> Transfer hot takoyaki to a plate. Brush generously with prepared takoyaki sauce, drizzle with Japanese mayonnaise, and sprinkle with aonori and bonito flakes before serving.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script type="module" src="java1.js"></script>
+    <script src="java1.js"></script>
+
+</body>
+</html>

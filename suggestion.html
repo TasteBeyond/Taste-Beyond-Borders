@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggest a Dish | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="suggestion-body">
+
+    <!-- LOADING SCREEN -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" src="backgroundmusic.mp3" loop></audio>
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+    <header class="landing-header">
+        <div class="brand">
+            <img src="logo.png" alt="Taste Beyond Borders" class="brand-logo">
+            <span>Taste Beyond<br>Borders</span>
+        </div>
+
+        <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+        <nav class="landing-nav" id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="homepage2.html">Cuisines</a>
+            <a href="homepage3.html">Recipes</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+
+            <div class="header-actions">
+                <button class="search-btn" onclick="openSearch()">🔍</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="suggestion-page">
+        <img src="suggestion.gif" alt="Suggest a dish" class="suggestion-gif">
+        <h1>Suggest a Dish</h1>
+        <p class="suggestion-page-sub">Got a recipe idea, cuisine, or feedback for the site? We'd love to hear it!</p>
+
+        <form id="suggestionForm" class="suggestion-form">
+            <input type="text" id="suggestName" placeholder="Your name (optional)">
+            <textarea id="suggestText" placeholder="Suggest a dish, cuisine, or improvement..." required></textarea>
+            <button type="submit" class="btn btn-primary">Send Suggestion</button>
+        </form>
+
+        <p id="suggestionStatus"></p>
+    </section>
+
+    <div class="thank-you-overlay" id="thankYouOverlay">
+        <div class="thank-you-box">
+            <img src="suggestion.gif" alt="Thank you" class="thank-you-gif">
+            <h3>Thank you so much!</h3>
+            <p>Your suggestion has been sent. We appreciate it!</p>
+            <button class="btn btn-primary" onclick="closeThankYou()">Close</button>
+        </div>
+    </div>
+
+    <!-- FIREBASE -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+        authDomain: "food-blog-4c5f8.firebaseapp.com",
+        projectId: "food-blog-4c5f8",
+        storageBucket: "food-blog-4c5f8.firebasestorage.app",
+        messagingSenderId: "905643195046",
+        appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      window.db = getFirestore(app);
+      window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+      document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- LOADER HIDE (safety net) -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <!-- MAIN SCRIPT (Fixed: Removed type="module") -->
+    <script src="java1.js"></script>
+
+</body>
+</html>

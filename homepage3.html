@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Recipes | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <!-- ================= MUSIC ================= -->
+    <audio id="bgMusic" src="1 Minute Free Music for Cooking Videos. No Copyright Music by Mukesh..mp3" loop></audio>
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ============================================================
+         PHILIPPINES
+    ============================================================ -->
+    <section class="cuisines" id="philippines">
+
+        <span class="section-eyebrow fade-in">Filipino Favorites</span>
+        <h2 class="fade-in">Philippines</h2>
+        <p class="cuisines-sub fade-in">Try these popular dishes from the Philippines.</p>
+
+        <div class="cuisine-grid">
+
+            <!-- Adobo -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="Adobong-Baboy-Filipino-Pork-Adobo-3-of-4.jpg" alt="Adobo">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Adobo</h3>
+                    <p class="cuisine-price">Savory, slow-cooked classic</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Chicken · Pork · Soy</span>
+                        <a href="recipe-adobo.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bicol Express -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="Bicol-Express-480x504.png" alt="Bicol Express">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Bicol Express</h3>
+                    <p class="cuisine-price">Fiery coconut &amp; chili stew</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Coconut · Chili · Pork</span>
+                        <a href="recipe-bicolexpress.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Halo Halo -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="halo halo.png" alt="Halo Halo">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Halo Halo</h3>
+                    <p class="cuisine-price">The ultimate summer dessert</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Shaved Ice · Fruits · Milk</span>
+                        <a href="recipehalohalo.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestion -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="suggestion.gif" alt="Suggest a dish">
+                    <span class="cuisine-badge"> SUGGEST</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Suggest Now!</h3>
+                    <p class="cuisine-price">Got a Filipino dish in mind?</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tell us your idea</span>
+                        <a href="suggestion.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         JAPAN
+    ============================================================ -->
+    <section class="cuisines" id="japan">
+
+        <span class="section-eyebrow">Japanese Favorites</span>
+        <h2>Japan</h2>
+        <p class="cuisines-sub">Try these popular dishes from Japan.</p>
+
+        <div class="cuisine-grid">
+
+            <!-- Sushi -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="sushi.png" alt="Sushi">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Sushi</h3>
+                    <p class="cuisine-price">Vinegared rice &amp; fresh fish</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Rice · Fish · Nori</span>
+                        <a href="sushi.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ramen -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="ramen.jfif" alt="Ramen">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Ramen</h3>
+                    <p class="cuisine-price">Noodles in rich broth</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Noodles · Broth · Egg</span>
+                        <a href="ramen.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Takoyaki -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="takoyaki.jfif" alt="Takoyaki">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Takoyaki</h3>
+                    <p class="cuisine-price">Octopus batter balls</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Flour · Octopus · Dashi</span>
+                        <a href="takoyaki.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestion -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="suggestion.gif" alt="Suggest a dish">
+                    <span class="cuisine-badge"> SUGGEST</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Suggest Now!</h3>
+                    <p class="cuisine-price">Got a Japanese dish in mind?</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tell us your idea</span>
+                        <a href="suggestion.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         MEXICO
+    ============================================================ -->
+    <section class="cuisines" id="mexico">
+
+        <span class="section-eyebrow">Mexican Favorites</span>
+        <h2>Mexico</h2>
+        <p class="cuisines-sub">Try these popular dishes from Mexico.</p>
+
+        <div class="cuisine-grid">
+
+            <!-- Tacos -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="tacos.jfif" alt="Tacos">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Tacos</h3>
+                    <p class="cuisine-price">Folded tortillas &amp; savory fillings</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tortilla · Meat · Salsa</span>
+                        <a href="tacos.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carnitas -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="carnitas.jfif" alt="Carnitas">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Carnitas</h3>
+                    <p class="cuisine-price">Slow-cooked seasoned pork</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Pork · Citrus · Herbs</span>
+                        <a href="carnitas.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quesadilla -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="quesadilla Beef.jfif" alt="Quesadilla">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Quesadilla</h3>
+                    <p class="cuisine-price">Tortilla with melted cheese</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tortilla · Cheese · Beef</span>
+                        <a href="quesadilla.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestion -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="suggestion.gif" alt="Suggest a dish">
+                    <span class="cuisine-badge"> SUGGEST</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Suggest Now!</h3>
+                    <p class="cuisine-price">Got a Mexican dish in mind?</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tell us your idea</span>
+                        <a href="suggestion.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ITALY
+    ============================================================ -->
+    <section class="cuisines" id="italy">
+
+        <span class="section-eyebrow">Italian Favorites</span>
+        <h2>Italy</h2>
+        <p class="cuisines-sub">Try these popular dishes from Italy.</p>
+
+        <div class="cuisine-grid">
+
+            <!-- Pizza -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="pizza.jfif" alt="Pizza">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Pizza</h3>
+                    <p class="cuisine-price">Flatbread with tomato &amp; cheese</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Dough · Tomato · Mozzarella</span>
+                        <a href="pizza.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lasagna -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="lasagna.jfif" alt="Lasagna">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Lasagna</h3>
+                    <p class="cuisine-price">Layered pasta &amp; cheese bake</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Pasta · Sauce · Cheese</span>
+                        <a href="lasagna.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tiramisu -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="tiramisu.jfif" alt="Tiramisu">
+                    <span class="cuisine-badge"> MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Tiramisu</h3>
+                    <p class="cuisine-price">Coffee-soaked dessert</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Coffee · Mascarpone · Cocoa</span>
+                        <a href="tiramisu.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestion -->
+            <div class="cuisine-card">
+                <div class="cuisine-card-image">
+                    <img src="suggestion.gif" alt="Suggest a dish">
+                    <span class="cuisine-badge"> SUGGEST</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Suggest Now!</h3>
+                    <p class="cuisine-price">Got an Italian dish in mind?</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tell us your idea</span>
+                        <a href="suggestion.html" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="java1.js"></script>
+</body>
+</html>

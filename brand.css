@@ -1,0 +1,167 @@
+/* ============================================================
+   EXPANDING FOOD GALLERY
+   ============================================================ */
+.food-gallery{
+  flex: 1 1 480px;
+  max-width: 640px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.food-panel{
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 90%;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  isolation: isolate;
+
+  filter: brightness(0.45) saturate(0.55);
+  opacity: 0.85;
+
+  transition:
+    flex        0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    height      0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    filter      0.5s ease,
+    opacity     0.5s ease,
+    box-shadow  0.5s ease;
+}
+
+.food-panel:hover:not(.active){
+  filter: brightness(0.7) saturate(0.85);
+  opacity: 1;
+}
+
+.food-panel img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.food-panel:hover img{
+  transform: scale(1.04);
+}
+
+.food-panel.active{
+  flex: 5 1 0;
+  height: 100%;
+  filter: none;
+  opacity: 1;
+  box-shadow:
+    0 0 0 1px rgba(255, 182, 72, 0.28),
+    0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.food-panel.active img{
+  transform: scale(1.02);
+}
+
+/* ---------- info overlay ---------- */
+.food-info{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 24px;
+
+  background: linear-gradient(
+      to top,
+      rgba(6, 12, 24, 0.94) 0%,
+      rgba(8, 14, 30, 0.72) 40%,
+      rgba(8, 14, 30, 0.15) 72%,
+      transparent 100%
+  );
+
+  color: #fff;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease 0.2s, transform 0.55s ease 0.2s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.food-panel.active .food-info{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* origin — small caps, gold rule accent */
+.food-info .food-origin{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffb648;
+  margin-bottom: 14px;
+}
+
+.food-info .food-origin::before{
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #ffb648;
+  opacity: 0.9;
+}
+
+/* title — serif, generous, tasteful */
+.food-info .food-title{
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+/* description — muted, airy, refined */
+.food-info .food-desc{
+  font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: rgba(210, 222, 240, 0.78);
+  margin: 0;
+  max-width: 92%;
+}
+
+.food-panel::after{ display: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px){
+  .food-gallery{ height: 340px; }
+  .food-info{ padding: 22px 18px; }
+  .food-info .food-title{ font-size: 20px; }
+  .food-info .food-desc{ font-size: 12px; }
+}
+
+@media (max-width: 600px){
+  .food-gallery{
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    gap: 6px;
+  }
+  .food-panel{ border-radius: 10px; }
+  .food-info{ padding: 16px 14px; }
+  .food-info .food-title{ font-size: 15px; letter-spacing: 0.5px; }
+  .food-info .food-desc{ font-size: 10.5px; line-height: 1.45; max-width: 100%; }
+  .food-info .food-origin{ font-size: 8.5px; letter-spacing: 2px; margin-bottom: 8px; }
+  .food-info .food-origin::before{ width: 16px; }
+}

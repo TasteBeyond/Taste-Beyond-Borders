@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="1 Minute Free Music for Cooking Videos. No Copyright Music by Mukesh..mp3" loop></audio>
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+
+    <div
+        id="searchBox"
+        class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()"
+        >
+
+        <button
+            onclick="searchRecipe()">
+            Search
+        </button>
+
+        <button
+            onclick="closeSearch()">
+            ✕
+        </button>
+
+    </div>
+
+        </nav>
+
+
+
+
+            
+        </nav>
+    </header>
+
+    <section class="faq-hero fade-in">
+        <h1>Frequently Asked Questions</h1>
+        <p>Got questions about our recipes, site, or cuisines? We've got answers.</p>
+    </section>
+
+    <section class="faq-list">
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                What cuisines does Taste Beyond Borders cover?
+                <span class="faq-icon">></span>
+            </button>
+            <div class="faq-answer">
+                <p>We currently feature dishes from the Philippines, Japan, Mexico, and Italy, with more cuisines being added over time.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Can I suggest a dish to be featured?
+                <span class="faq-icon">></span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes! Visit our <a href="suggestion.html">Suggest a Dish</a> page and let us know what you'd like to see next.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Are the recipes beginner-friendly?
+                <span class="faq-icon">></span>
+            </button>
+            <div class="faq-answer">
+                <p>Most of our recipes are written with clear, step-by-step instructions so cooks of any skill level can follow along.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Can I leave a comment or rating on a recipe?
+                <span class="faq-icon">></span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, every recipe page has a comment section and a star rating system so you can share your thoughts and experience.</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Is Taste Beyond Borders free to use?
+                <span class="faq-icon">></span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, browsing recipes, leaving comments, and submitting suggestions are completely free.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="java1.js"></script>
+</body>
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loader" class="loader">
+    <div class="loader-inner">
+        <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+        <p class="loader-text">Taste Beyond Borders</p>
+        <div class="loader-bar"><span></span></div>
+    </div>
+</div>
+</html>

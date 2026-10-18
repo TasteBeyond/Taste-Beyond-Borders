@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pork Carnitas (Mexican Pulled Pork) | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+<body class="recipe-detail-page">
+
+<div class="bg-overlay"></div>
+
+<header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+
+    <div
+        id="searchBox"
+        class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()"
+        >
+
+        <button
+            onclick="searchRecipe()">
+            Search
+        </button>
+
+        <button
+            onclick="closeSearch()">
+            ✕
+        </button>
+
+    </div>
+
+        </nav>
+
+
+    </nav>
+</header>
+
+<div class="recipe-container">
+
+    <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+    <div class="recipe-title-row fade-in">
+        <h1>Pork Carnitas (Mexican Pulled Pork)</h1>
+        <div class="recipe-flag-row">
+            <img src="Mexican-Flag-750x375.jpg" alt="Mexico flag" class="flag-icon">
+            <span>Mexico</span>
+        </div>
+    </div>
+
+    <div class="recipe-main-grid">
+
+        <div class="recipe-left">
+            <div class="video-wrapper fade-in">
+                <iframe width="400" height="600" src="https://www.youtube.com/embed/_22pYaysZzY" title="Pork Carnitas (Mexican Pulled Pork)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="cultural-bg fade-in">
+                <h3>Cultural Background</h3>
+                <p>Carnitas, meaning "little meats," is a cherished culinary tradition originating from the state of Michoacán in western Mexico. Traditionally made by slow-cooking pork in lard in large copper cauldrons (cazos) until tender and juicy, the meat is then crisp-fried in its own fat. This technique creates a delicious contrast of ultra-tender, succulent pork with golden, crispy edges that make it the ultimate filling for tacos, burritos, and tortas.</p>
+            </div>
+            <br>
+            <div class="info-block fade-in">
+                <h3>Did You Know?</h3>
+                <p>Did you know that adding fresh orange juice and lime juice to the slow-cooking liquid tenderizes the meat while adding a subtle sweetness that caramelizes perfectly when crisping the pork in the oven or skillet?</p>
+            </div>
+            <br>
+            <div class="rating-block">
+                <h3>Rate this Recipe</h3>
+                <div class="stars" id="starRating">
+                    <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                </div>
+                <p id="ratingSummary"></p>
+            </div>
+            
+            <section class="comments-section">
+                <h3>Comments</h3>
+
+                <form id="commentForm" class="comment-form">
+                    <input type="text" id="commentName" placeholder="Your name" required>
+                    <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+
+                <div id="commentList" class="comment-list"></div>
+            </section>
+            <br>
+
+            <div class="quote-block fade-in">
+                <img src="logo.png" alt="" class="quote-icon">
+                <p><em>Every tortilla dreams of being<br>stuffed with Pork Carnitas!</em></p>
+            </div>
+        </div>
+
+        <div class="recipe-right">
+            <div class="info-block fade-in">
+                <h3>Ingredients</h3>
+                
+                <h4>Carnitas Pork & Rub</h4>
+                <ul class="check-list">
+                    <li>2 kg / 4.4 lbs Pork Shoulder (Boston Butt), skinless, bone-in or boneless</li>
+                    <li>2 tsp Dried Oregano</li>
+                    <li>2 tsp Ground Cumin</li>
+                    <li>1 tbsp Salt</li>
+                    <li>1 tsp Black Pepper</li>
+                    <li>1 tbsp Olive Oil</li>
+                </ul>
+
+                <h4>Braising Liquid</h4>
+                <ul class="check-list">
+                    <li>1 Onion (diced)</li>
+                    <li>1 Jalapeño (deseeded and chopped)</li>
+                    <li>4 cloves Garlic (minced)</li>
+                    <li>3/4 cup Fresh Orange Juice</li>
+                    <li>2 tbsp Lime Juice</li>
+                </ul>
+
+                <h4>Serving Options</h4>
+                <ul class="check-list">
+                    <li>Warm Corn Tortillas</li>
+                    <li>Chopped Fresh Cilantro</li>
+                    <li>Diced Red or White Onion</li>
+                    <li>Lime Wedges</li>
+                    <li>Guacamole or Avocado Slices</li>
+                    <li>Salsa Verde or Pico de Gallo</li>
+                </ul>
+            </div>
+
+            <div class="info-block fade-in">
+                <h3>How to Prepare</h3>
+                <ol class="step-list">
+                    <li><strong>Spice the Pork:</strong> Mix dried oregano, ground cumin, salt, and black pepper. Rub the spice mixture all over the pork shoulder.</li>
+                    <li><strong>Combine in Cooker:</strong> Place the diced onion, minced garlic, and chopped jalapeño in the bottom of a slow cooker (or Dutch oven). Place the seasoned pork shoulder on top, then pour fresh orange juice and lime juice over the pork.</li>
+                    <li><strong>Slow Cook:</strong> Cover and cook on Low for 8 to 10 hours or High for 5 to 6 hours until the pork is tender enough to fall apart easily with two forks.</li>
+                    <li><strong>Shred the Meat:</strong> Remove the pork from the slow cooker onto a tray and shred using two forks. Reserve the savory cooking juices left in the cooker.</li>
+                    <li><strong>Crisp to Perfection:</strong> Spread shredded pork onto a baking sheet, drizzle with some of the cooking juices, and broil in a preheated oven for 5 to 10 minutes until the edges are crispy and golden brown.</li>
+                    <li><strong>Assemble & Serve:</strong> Toss the crispy pork with a few more spoonfuls of juices and serve hot in warm corn tortillas topped with fresh cilantro, diced onions, guacamole, and a squeeze of lime juice.</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+    authDomain: "food-blog-4c5f8.firebaseapp.com",
+    projectId: "food-blog-4c5f8",
+    storageBucket: "food-blog-4c5f8.firebasestorage.app",
+    messagingSenderId: "905643195046",
+    appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.db = getFirestore(app);
+  window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+  const ready = new Event('firebaseReady');
+  document.dispatchEvent(ready);
+</script>
+
+<script type="module" src="java1.js"></script>
+<script src="java1.js"></script>
+</body>
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loader" class="loader">
+    <div class="loader-inner">
+        <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+        <p class="loader-text">Taste Beyond Borders</p>
+        <div class="loader-bar"><span></span></div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisines | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <!-- ================= MUSIC ================= -->
+    <audio id="bgMusic" src="1 Minute Free Music for Cooking Videos. No Copyright Music by Mukesh..mp3" loop></audio>
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ============================================================
+         HERO — "Our Cuisines"
+    ============================================================ -->
+    <section class="cuisines-hero">
+        <h1 class="fade-in">Our Cuisines</h1>
+        <p class="fade-in">Four countries. Four vibrant food cultures.</p>
+    </section>
+
+    <!-- ============================================================
+         CUISINE CARDS
+    ============================================================ -->
+    <section class="cuisines">
+
+        <span class="section-eyebrow fade-in">Explore by Country</span>
+        <h2 class="fade-in">Pick a Cuisine</h2>
+        <p class="cuisines-sub fade-in">Discover unique flavors and traditions from around the world.</p>
+
+        <div class="cuisine-grid">
+
+            <!-- Philippines -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="Adobong-Baboy-Filipino-Pork-Adobo-3-of-4.jpg" alt="Philippines">
+                    <span class="cuisine-badge"> PHILIPPINES</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Philippines</h3>
+                    <p class="cuisine-price">Rich flavors, warm people</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Adobo · Bicol Express · Halo-halo</span>
+                        <a href="homepage3.html#philippines" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Japan -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="sushi.png" alt="Japan">
+                    <span class="cuisine-badge"> JAPAN</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Japan</h3>
+                    <p class="cuisine-price">Simple, extraordinary flavors</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Sushi · Ramen · Takoyaki</span>
+                        <a href="homepage3.html#japan" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mexico -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="tacos.jfif" alt="Mexico">
+                    <span class="cuisine-badge"> MEXICO</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Mexico</h3>
+                    <p class="cuisine-price">Bold spices, vibrant culture</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tacos · Carnitas · Quesadilla</span>
+                        <a href="homepage3.html#mexico" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Italy -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="pizza.jfif" alt="Italy">
+                    <span class="cuisine-badge"> ITALY</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Italy</h3>
+                    <p class="cuisine-price">Classic, timeless recipes</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Pizza · Lasagna · Tiramisu</span>
+                        <a href="homepage3.html#italy" class="cuisine-add">→</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="java1.js"></script>
+</body>
+</html>

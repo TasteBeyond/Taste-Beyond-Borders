@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taste Beyond Borders</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="brand.css">
+</head>
+
+<body class="home-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <!-- ================= BACKGROUND MUSIC ================= -->
+    <audio
+        id="bgMusic"
+        src="1 Minute Free Music for Cooking Videos. No Copyright Music by Mukesh..mp3"
+        loop>
+    </audio>
+
+    <button
+        class="music-toggle"
+        onclick="toggleMusic()">
+        🔇
+    </button>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+
+        <div class="hero-copy fade-in">
+
+            <span class="hero-label">= TASTE THE WORLD =</span>
+
+            <h1>
+                Taste<br>
+                <span class="accent">Beyond</span><br>
+                Borders
+            </h1>
+
+            <p class="hero-sub">
+                Handcrafted recipes from around the world. Explore flavors
+                from the Philippines, Japan, Mexico, and Italy.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="homepage2.html" class="btn btn-primary pill-cta">
+                    Browse Menu →
+                </a>
+                <a href="homepage3.html" class="btn btn-ghost pill-cta">
+                    View Full Menu
+                </a>
+            </div>
+
+            <div class="hero-meta">
+                <span>🇵🇭 · 🇯🇵 · 🇲🇽 · 🇮🇹 </span>
+                <span>DATAMEX COLLEGE OF SAINT ADELINE- </span>
+                
+            </div>
+
+        </div>
+
+        <!-- 5 origins ng mga foods -->
+        <div class="food-gallery fade-in">
+
+            <div class="food-panel active"
+                 data-name="Pork Adobo"
+                 data-origin="Philippines"
+                 data-desc="A savory braise of pork simmered in soy sauce, vinegar, garlic, and bay leaves — named by Spanish colonizers after the native preservation technique.">
+                <img src="Adobong-Baboy-Filipino-Pork-Adobo-3-of-4.jpg" alt="Pork Adobo">
+            </div>
+
+            <div class="food-panel"
+                 data-name="Sushi"
+                 data-origin="Japan"
+                 data-desc="Born as a preservation method in Southeast Asia and refined in Edo-period Tokyo, sushi is now the definitive expression of Japanese culinary minimalism.">
+                <img src="sushi.png" alt="Sushi">
+            </div>
+
+            <div class="food-panel"
+                 data-name="Tacos"
+                 data-origin="Mexico"
+                 data-desc="Rooted in pre-Columbian Mexico and named after the paper-wrapped charges of 18th-century silver miners, tacos are a cornerstone of Mexican street food.">
+                <img src="tacos.jfif" alt="Tacos">
+            </div>
+
+            <div class="food-panel"
+                 data-name="Pizza"
+                 data-origin="Italy"
+                 data-desc="Naples, 1889 — a flatbread of tomato, mozzarella, and basil created for Queen Margherita, its colors a tribute to the Italian flag.">
+                <img src="pizza.jfif" alt="Pizza">
+            </div>
+
+            <div class="food-panel"
+                 data-name="Halo-Halo"
+                 data-origin="Philippines"
+                 data-desc="A layered shaved-ice dessert — its name means 'mix-mix' — combining evaporated milk, sweet beans, tropical fruits, and leche flan.">
+                <img src="halo halo.png" alt="Halo Halo">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= EXPLORE CUISINES ================= -->
+    <section class="cuisines">
+
+        <span class="section-eyebrow fade-in">Most Favorites</span>
+
+        <h2 class="fade-in">
+            Explore Cuisines
+        </h2>
+
+        <p class="cuisines-sub fade-in">
+            Discover unique flavors and traditions from different countries.
+        </p>
+
+        <div class="cuisine-grid">
+
+            <!-- PHILIPPINES -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="Adobong-Baboy-Filipino-Pork-Adobo-3-of-4.jpg" alt="Philippines">
+                    <span class="cuisine-badge">🇵🇭 MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Philippines</h3>
+                    <p class="cuisine-price">Rich flavors, warm people</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Adobo · Bicol Express · Halo-halo</span>
+                        <a href="homepage3.html#philippines" class="cuisine-add">></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JAPAN -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="sushi.png" alt="Japan">
+                    <span class="cuisine-badge">🇯🇵 MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Japan</h3>
+                    <p class="cuisine-price">Simple, extraordinary flavors</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Sushi · Ramen · Takoyaki</span>
+                        <a href="homepage3.html#japan" class="cuisine-add">></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEXICO -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="tacos.jfif" alt="Mexico">
+                    <span class="cuisine-badge">🇲🇽 MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Mexico</h3>
+                    <p class="cuisine-price">Bold spices, vibrant culture</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Tacos · Carnitas · Quesadilla</span>
+                        <a href="homepage3.html#mexico" class="cuisine-add">></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITALY -->
+            <div class="cuisine-card fade-in">
+                <div class="cuisine-card-image">
+                    <img src="pizza.jfif" alt="Italy">
+                    <span class="cuisine-badge">🇮🇹 MOST POPULAR</span>
+                </div>
+                <div class="cuisine-card-body">
+                    <h3>Italy</h3>
+                    <p class="cuisine-price">Classic, timeless recipes</p>
+                    <div class="cuisine-card-footer">
+                        <span class="cuisine-sizes">Pizza · Lasagna · Tiramisu</span>
+                        <a href="homepage3.html#italy" class="cuisine-add">></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ================= SITE FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <!-- Brand & Description -->
+        <div class="footer-brand-section">
+            <div class="footer-brand-header">
+                <img src="logo.png" alt="Taste Beyond Borders Logo" class="footer-logo">
+                <div>
+                    <h3 class="footer-title">Taste Beyond Borders</h3>
+                    <span class="footer-subtitle">Taste the world</span>
+                </div>
+            </div>
+            
+            <p class="footer-desc">
+                A student-made project exploring the flavors, culture, and stories behind dishes from around the world. Built with curiosity and a love for food.
+            </p>
+
+            <!-- Project Details Button -->
+            <a href="about.html" class="footer-project-btn">
+                <span class="icon">✦</span> Project Details
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-nav-section">
+            <h4 class="footer-heading">Navigation</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="homepage2.html">Cuisines</a></li>
+                <li><a href="homepage3.html">Recipes</a></li>
+                <li><a href="about.html">Our Team</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact-section">
+            <h4 class="footer-heading">Location & Contact</h4>
+            <ul class="footer-contact-list">
+                <li>
+                    <span class="icon">📍</span>
+                    <span>8167 Dr. A. Santos Avenue, Datamex Compound, Barangay San Dionisio, Parañaque City, Metro Manila</span>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <span>+63 912 345 6789</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Taste Beyond Borders. All rights reserved.</p>
+        <p class="footer-credits">Project by students of Datamex College of Saint Adeline</p>
+    </div>
+</footer>
+    <script src="java1.js"></script>
+
+</body>
+</html>

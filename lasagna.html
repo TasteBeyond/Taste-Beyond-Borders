@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick and Easy Lasagna | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="stylevideo.css">
+</head>
+
+<body class="recipe-detail-page">
+
+    <!-- ================= LOADING SCREEN ================= -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ================= BACKGROUND VIDEO ================= -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- ================= SEARCH BOX ================= -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()">
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- ================= RECIPE ================= -->
+    <div class="recipe-container">
+
+        <a href="homepage3.html" class="back-link">← Back to Recipes</a>
+
+        <div class="recipe-title-row fade-in">
+            <h1>Homemade Lasagna</h1>
+            <div class="recipe-flag-row">
+                <img src="italy.jfif" alt="Italy flag" class="flag-icon">
+                <span>Italy</span>
+            </div>
+        </div>
+
+        <div class="recipe-main-grid">
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <div class="recipe-left">
+
+                <!-- Video -->
+                <div class="video-wrapper fade-in">
+                    <iframe
+                        src="https://www.youtube.com/embed/VkQajdYciW0"
+                        title="LASAGNA/LAZANYA (quick and easy)"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="cultural-bg fade-in">
+                    <h3>Cultural Background</h3>
+                    <p>Lasagna originated in Naples, Italy during the Middle Ages, evolving into one of the world's most cherished baked pasta dishes. Traditional Italian lasagna features rich meat sauce (ragù) layered between thin sheets of pasta and a creamy béchamel sauce, creating a deeply comforting and flavorful dish for family gatherings.</p>
+                </div>
+
+                <br>
+
+                <div class="info-block fade-in">
+                    <h3>Did You Know?</h3>
+                    <p>Did you know that using toothpicks to prop up the foil while baking keeps the cheese from sticking to the foil as it melts? This ensures every bit of bubbly, golden cheese stays right on top of your lasagna!</p>
+                </div>
+
+                <br>
+
+                <div class="rating-block">
+                    <h3>Rate this Recipe</h3>
+                    <div class="stars" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingSummary"></p>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comments</h3>
+
+                    <form id="commentForm" class="comment-form">
+                        <input type="text" id="commentName" placeholder="Your name" required>
+                        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+
+                    <div id="commentList" class="comment-list"></div>
+                </section>
+
+                <br>
+
+                <div class="quote-block fade-in">
+                    <img src="logo.png" alt="" class="quote-icon">
+                    <p><em>Rich meat sauce, creamy béchamel, and melted cheese—<br>comfort food at its absolute finest!</em></p>
+                </div>
+
+            </div>
+
+            <!-- ================= RIGHT COLUMN ================= -->
+            <div class="recipe-right">
+
+                <div class="info-block fade-in">
+                    <h3>Ingredients</h3>
+
+                    <h4>Meat Sauce</h4>
+                    <ul class="check-list">
+                        <li>1,000 g Ground Meat</li>
+                        <li>1 Large Onion (diced)</li>
+                        <li>4 Garlic Cloves (minced)</li>
+                        <li>1 tbsp Chili Flakes</li>
+                        <li>2 cans (400 g each) Chopped Tomatoes</li>
+                        <li>1 tbsp Fresh Herbs (parsley, basil, thyme, rosemary) or 2 tsp Italian Seasoning</li>
+                        <li>Olive Oil, Salt, and Black Pepper to taste</li>
+                    </ul>
+
+                    <h4>Béchamel Sauce</h4>
+                    <ul class="check-list">
+                        <li>4 tbsp Butter</li>
+                        <li>4 tbsp Flour</li>
+                        <li>3 cups Cold Milk</li>
+                        <li>Pinch of Nutmeg &amp; Salt</li>
+                    </ul>
+
+                    <h4>Assembly &amp; Topping</h4>
+                    <ul class="check-list">
+                        <li>No-Boil Lasagna Sheets</li>
+                        <li>Shredded Mozzarella &amp; Light Cheddar Cheese</li>
+                        <li>Fresh Mozzarella Slices</li>
+                    </ul>
+                </div>
+
+                <div class="info-block fade-in">
+                    <h3>How to Prepare</h3>
+                    <ol class="step-list">
+                        <li><strong>Prepare Meat Sauce:</strong> Sauté onions, garlic, and chili flakes in olive oil. Add ground meat and cook until browned. Add chopped tomatoes, herbs, salt, pepper, and a splash of water. Cover and simmer for 30 minutes until thickened.</li>
+                        <li><strong>Make Béchamel:</strong> Melt butter in a pot, whisk in flour, then gradually pour in cold milk while stirring continuously. Season with nutmeg and salt, then cook until slightly thickened.</li>
+                        <li><strong>Assemble Layers:</strong> Spread a thin layer of béchamel on the bottom of a baking dish. Layer lasagna sheets, meat sauce, béchamel, and shredded cheese. Repeat for 4 layers, topping the final layer with fresh mozzarella slices.</li>
+                        <li><strong>Bake:</strong> Insert toothpicks on top to elevate aluminum foil so it doesn't touch the cheese. Cover with foil and bake at 190°C (375°F) for 40 minutes covered, then remove foil and bake for an additional 15 minutes.</li>
+                        <li><strong>Rest &amp; Serve:</strong> Let the lasagna cool and set for 30 minutes before slicing and serving.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhf4bY1y4NzeSSg4GYs8bdTBeSFJwg2BM",
+            authDomain: "food-blog-4c5f8.firebaseapp.com",
+            projectId: "food-blog-4c5f8",
+            storageBucket: "food-blog-4c5f8.firebasestorage.app",
+            messagingSenderId: "905643195046",
+            appId: "1:905643195046:web:d11ae7aeeb7f7667689267"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.dbFns = { collection, addDoc, getDocs, query, orderBy };
+
+        document.dispatchEvent(new Event('firebaseReady'));
+    </script>
+
+    <!-- ================= LOADER HIDE (safety net) ================= -->
+    <script>
+        (function () {
+            function hideLoader() {
+                var loader = document.getElementById("loader");
+                if (!loader) return;
+                loader.classList.add("hidden");
+                setTimeout(function () { loader.style.display = "none"; }, 700);
+            }
+            window.addEventListener("load", function () {
+                setTimeout(hideLoader, 3000);
+            });
+            setTimeout(hideLoader, 4000);
+        })();
+    </script>
+
+    <script src="java1.js"></script>
+
+</body>
+</html>

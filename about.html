@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Taste Beyond Borders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body class="about-page">
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="Taste Beyond Borders" class="loader-logo">
+            <p class="loader-text">Taste Beyond Borders</p>
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- Background music > toggle -->
+    <audio id="bgMusic" src="1 Minute Free Music for Cooking Videos. No Copyright Music by Mukesh..mp3" loop></audio>
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+    <!-- Background video -->
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay"></div>
+
+    <!-- Header -->
+    <header class="landing-header">
+
+    <div class="brand">
+        <img
+            src="logo.png"
+            alt="Taste Beyond Borders"
+            class="brand-logo">
+        <span>
+            Taste Beyond<br>
+            Borders
+        </span>
+    </div>
+
+    <!-- 1. ADDED THE MOBILE MENU BUTTON HERE -->
+    <button class="menu-button" id="menu-button" onclick="toggleMobileMenu()">Menu</button>
+
+    <!-- 2. ADDED id="main-nav" HERE -->
+    <nav class="landing-nav" id="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="homepage2.html">Cuisines</a>
+        <a href="homepage3.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+
+        <div class="header-actions">
+            <button
+                class="search-btn"
+                onclick="openSearch()">
+                🔍
+            </button>
+        </div>
+    </nav>
+
+</header>
+
+    <!-- Search box -->
+    <div id="searchBox" class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search recipes..."
+            onkeydown="if(event.key === 'Enter') searchRecipe()"
+        >
+        <button onclick="searchRecipe()">Search</button>
+        <button onclick="closeSearch()">✕</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="about-hero fade-in">
+        <h1>About Taste Beyond Borders</h1>
+        <p>A food blog celebrating the flavors, culture, and stories behind dishes from around the world.</p>
+    </section>
+
+    <!-- About content -->
+    <section class="about-content">
+        <div class="about-block fade-in">
+            <h2>Our Story</h2>
+            <p>Taste Beyond Borders began as a simple idea — that food is one of the easiest ways to understand a culture. What started as a personal collection of family recipes grew into a space for exploring dishes from the Philippines, Japan, Mexico, and Italy.</p>
+        </div>
+
+        <div class="about-block fade-in">
+            <h2>What We Do</h2>
+            <p>We share step-by-step recipes, cultural background on each dish, and short cooking videos so you can bring these flavors into your own kitchen, no matter your experience level.</p>
+        </div>
+
+        <div class="about-values">
+            <div class="value-card fade-in">
+                <h3>Authenticity</h3>
+                <p>Every recipe respects its origin and traditional preparation.</p>
+            </div>
+            <div class="value-card fade-in">
+                <h3>Simplicity</h3>
+                <p>Clear instructions using ingredients you can actually find.</p>
+            </div>
+            <div class="value-card fade-in">
+                <h3>Culture</h3>
+                <p>Every dish comes with the story behind it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MEET THE TEAM ================= -->
+    <section class="team-section">
+        <div class="team-header fade-in">
+            <h2>Meet the Team</h2>
+            <p>The students who researched, organized, and built this information project.</p>
+        </div>
+
+        <div class="team-grid">
+        </div>
+
+            <!-- Project Leader -->
+            <div class="team-card fade-in">
+                <img src="ameer.png" alt="Ameer S. Rebalde" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Ameer S. Rebalde</h3>
+                <p class="team-role">Project Leader</p>
+                <p>Leads the team from planning to presentation. Sets the schedule, divides the tasks, keeps everyone on track, and makes sure every member's contribution fits into the final project. Reviews all work before submission and represents the group when needed.</p>
+            </div>
+
+            <!-- Web Designer / Programmer -->
+            <div class="team-card fade-in">
+                <img src="beronio.png" alt="Arven B. Beronio" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Arven B. Beronio</h3>
+                <p class="team-role">Web Designer / Programmer</p>
+                <p>Designed the layout, colors, and overall look of the website, then wrote the HTML, CSS, and JavaScript that bring it to life. Handles navigation, search, loading screen, and makes sure the site works properly on both phones and computers.</p>
+            </div>
+
+            <!-- Content Manager -->
+            <div class="team-card fade-in">
+                <img src="boco.jpg" alt="Charles Boco" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Charles E. Boco</h3>
+                <p class="team-role">Content Manager</p>
+                <p>Writes, edits, and organizes every article and recipe on the site. Checks spelling, grammar, and formatting so all content is clear and easy to read. Decides what information goes on each page and how it is arranged for visitors.</p>
+            </div>
+
+            <!-- Documentation Officer -->
+            <div class="team-card fade-in">
+                <img src="ariel.jpg" alt="Trinidad John Ariel" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Trinidad John Ariel</h3>
+                <p class="team-role">Documentation Officer</p>
+                <p>Records the team's progress from start to finish. Keeps meeting notes, task lists, and files organized, documents each member's contributions, and prepares the final written report that accompanies the project submission.</p>
+            </div>
+
+            <!-- Research -->
+            <div class="team-card fade-in">
+                <img src="garcia.png" alt="Mike Jefferson S. Garcia" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Mike Jefferson S. Garcia</h3>
+                <p class="team-role">Researcher</p>
+                <p>Gathers facts and background information on each dish, cuisine, and culture featured on the site. Verifies details from trusted sources and makes sure every claim about a recipe's origin or tradition is accurate before it is published.</p>
+            </div>
+
+            <!-- Research -->
+            <div class="team-card fade-in">
+                <img src="mapa.jpg" alt="Mapa" class="team-photo"
+                     onerror="this.src='https://via.placeholder.com/120?text=Photo'">
+                <h3>Amir Dave F. Mapa</h3>
+                <p class="team-role">Researcher</p>
+                <p>Finds reliable sources, books, and articles used as references for the project. Compares information from different sources to confirm accuracy, and provides the content team with well-organized notes they can turn into readable pages.</p>
+            </div>
+
+    </section>
+
+    <script src="java1.js"></script>
+</body>
+</html>
